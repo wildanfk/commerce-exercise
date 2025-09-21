@@ -1,4 +1,4 @@
-# edot-exercise
+# commerce-exercise
 
 1. infrastructure
 2. user_service
