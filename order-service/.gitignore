@@ -1,0 +1,31 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Code editor
+.idea/
+.vscode/
+
+# version manager
+.tool-versions
+.go-version
+
+# macOS
+.DS_Store
+
+# Other
+.env
+bin/
+vendor/
+tmp/
+testlocal/
+
+# UT Coverage Report
+UT-go-content-service.json
+coverage.out

@@ -1,0 +1,11 @@
+# How to setup
+# First initial : docker-compose up
+# When container created : docker-compose start
+version: "3"
+services:
+  mysql:
+    image: mysql:8.0.21
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpw
+    ports:
+      - 3306:3306
