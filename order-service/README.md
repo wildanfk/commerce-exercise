@@ -48,6 +48,13 @@ Called Internal Service:
 - Warehouse Stock
 ```
 
+## Build Image
+
+```
+make compile
+make build
+```
+
 ## Database
 
 ### Table: orders

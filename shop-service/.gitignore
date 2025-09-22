@@ -29,3 +29,6 @@ testlocal/
 # UT Coverage Report
 UT-go-content-service.json
 coverage.out
+
+# Bin Build
+build/_output

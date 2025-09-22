@@ -1,0 +1,35 @@
+# How to setup
+# First initial : docker-compose up
+# When container created : docker-compose start
+version: "3"
+services:
+  user-service:
+    image: commerce-exercise-user-service/gateway:latest
+    ports:
+      - "10001:10001"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  shop-service:
+    image: commerce-exercise-shop-service/gateway:latest
+    ports:
+      - "10002:10002"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  product-service:
+    image: commerce-exercise-product-service/gateway:latest
+    ports:
+      - "10003:10003"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  warehouse-service:
+    image: commerce-exercise-warehouse-service/gateway:latest
+    ports:
+      - "10004:10004"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  order-service:
+    image: commerce-exercise-order-service/gateway:latest
+    ports:
+      - "10005:10005"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

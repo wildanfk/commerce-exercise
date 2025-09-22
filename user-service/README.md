@@ -37,6 +37,13 @@ make generate-db-migration MIGRATE_MODULE=auth MIGRATE_NAME=create_table_user
 go run cmd/gateway/main.go
 ```
 
+## Build Image
+
+```
+make compile
+make build
+```
+
 ## Database
 
 ### Table: users

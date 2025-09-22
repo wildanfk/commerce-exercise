@@ -38,6 +38,13 @@ make generate-db-migration MIGRATE_MODULE=warehouse MIGRATE_NAME=create_table_wa
 go run cmd/gateway/main.go
 ```
 
+## Build Image
+
+```
+make compile
+make build
+```
+
 ## Database
 
 ### Table: warehouses

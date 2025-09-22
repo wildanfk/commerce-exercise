@@ -5,12 +5,17 @@ MODULES      = $(shell cd module && ls -d */)
 TMP_DIR     := $(shell mktemp -d)
 UNAME       := $(shell uname)
 
+ODIR 		:= build/_output
+DOCKERFILES  = $(shell cd build && find */ -name 'Dockerfile' -print)
+
 # Default mysql migration settings
 export MYSQL_USER ?= root
 export MYSQL_PASS ?= root
 export MYSQL_HOST ?= localhost
 export MYSQL_PORT ?= 3306
 export MYSQL_DB   ?= product_service
+
+export VAR_SERVICES ?= $(foreach path, $(DOCKERFILES), $(path:%/Dockerfile=%))
 
 dep:
 	@go mod tidy
@@ -55,3 +60,16 @@ test:
 coverage:
 	@go run gotest.tools/gotestsum@latest --format pkgname --jsonfile UT-product-service.json -- -coverprofile=coverage.out ${GO_PACKAGES}
 	@go tool cover -func=coverage.out
+
+
+$(ODIR):
+	@mkdir -p $(ODIR)
+
+compile: $(ODIR)
+	@$(foreach svc, $(VAR_SERVICES), \
+		GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o $(ODIR)/$(svc) cmd/$(svc)/main.go;)
+
+build: $(ODIR)
+	@$(foreach svc, $(VAR_SERVICES), \
+		docker build -t commerce-exercise-product-service/$(svc) -f ./build/$(svc)/Dockerfile .;)
+

@@ -37,6 +37,13 @@ make generate-db-migration MIGRATE_MODULE=product MIGRATE_NAME=create_table_prod
 go run cmd/gateway/main.go
 ```
 
+## Build Image
+
+```
+make compile
+make build
+```
+
 ## Database
 
 ### Table: products

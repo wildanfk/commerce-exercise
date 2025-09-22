@@ -37,6 +37,13 @@ make generate-db-migration MIGRATE_MODULE=shop MIGRATE_NAME=create_table_shop
 go run cmd/gateway/main.go
 ```
 
+## Build Image
+
+```
+make compile
+make build
+```
+
 ## Database
 
 ### Table: shops
